@@ -26,7 +26,7 @@ class ButtonCustom extends StatelessWidget {
       color: this.bgColor,
       splashColor: Colors.white24,
       onPressed: this.onPressed,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
     );
   }
 }

@@ -16,7 +16,10 @@ class _HomeState extends State<Home> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Image.asset("assets/logo1.webp"),
+            Image.asset(
+              "assets/logo1.webp",
+              width: MediaQuery.of(context).size.width * .8,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
