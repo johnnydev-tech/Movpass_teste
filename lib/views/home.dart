@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movpass_test/components/buttonCustom.dart';
+import 'package:movpass_test/views/lists/listModalities.dart';
+import 'package:movpass_test/views/lists/listPersonalTrainers.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -26,7 +28,12 @@ class _HomeState extends State<Home> {
                 ButtonCustom(
                   texto: "TREINADORES",
                   bgColor: Color(0xffE9A945),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => (ListTrainers())));
+                  },
                 ),
                 SizedBox(
                   height: 16,
@@ -34,7 +41,12 @@ class _HomeState extends State<Home> {
                 ButtonCustom(
                   texto: "MODALIDADES",
                   bgColor: Color(0xff242A2C),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => (ListModalities())));
+                  },
                 ),
               ],
             ),

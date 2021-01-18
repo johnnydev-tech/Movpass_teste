@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class ListModalities extends StatefulWidget {
+class ListTrainers extends StatefulWidget {
   @override
-  _ListModalitiesState createState() => _ListModalitiesState();
+  _ListTrainersState createState() => _ListTrainersState();
 }
 
-class _ListModalitiesState extends State<ListModalities> {
+class _ListTrainersState extends State<ListTrainers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Modalidades"),
+        title: Text("Treinadores"),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
