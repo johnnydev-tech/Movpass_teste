@@ -57,6 +57,7 @@ class _DetailTrainerState extends State<DetailTrainer> {
                       Text(trainer.cref),
                       Text(trainer.email),
                       Text(trainer.id.toString()),
+                      Text("Modalidades",),
                       ListView.builder(
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,
@@ -69,8 +70,9 @@ class _DetailTrainerState extends State<DetailTrainer> {
                           print(modalidade.toString());
                           return Card(
                             child: ListTile(
-                              title: Text(modalidade.duration.toString()),
+                              title: Text(modalidade.label),
                               subtitle: Text(modalidade.description),
+                              leading: Text(modalidade.duration.toString()),
                               isThreeLine: true,
                             ),
                           );
