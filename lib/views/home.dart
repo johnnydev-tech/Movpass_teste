@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 ButtonCustom(
-                  texto: "Treinadores",
+                  texto: "TREINADORES",
                   bgColor: Color(0xffE9A945),
                   onPressed: () {},
                 ),
@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
                   height: 16,
                 ),
                 ButtonCustom(
-                  texto: "Modalidades",
+                  texto: "MODALIDADES",
                   bgColor: Color(0xff242A2C),
                   onPressed: () {},
                 ),
