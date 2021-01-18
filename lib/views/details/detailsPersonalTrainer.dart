@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:movpass_test/controller/trainerController.dart';
+import 'package:movpass_test/model/modalities.dart';
 import 'package:movpass_test/model/trainer.dart';
 
 class DetailTrainer extends StatefulWidget {
+  final int id;
+
+  const DetailTrainer({Key key, this.id}) : super(key: key);
+
   @override
   _DetailTrainerState createState() => _DetailTrainerState();
 }
@@ -11,18 +16,18 @@ class _DetailTrainerState extends State<DetailTrainer> {
   TrainerAPI api = TrainerAPI();
 
   _listTrainer() {
-    return api.getAll();
+    return api.get(widget.id.toString());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Treinadores"),
+        title: Text("Detalhes Treinador"),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
-        child: FutureBuilder<List<Trainer>>(
+        child: FutureBuilder(
           future: _listTrainer(),
           // ignore: missing_return
           builder: (context, snapshot) {
@@ -32,7 +37,7 @@ class _DetailTrainerState extends State<DetailTrainer> {
                 return Center(
                   child: CircularProgressIndicator(
                     valueColor:
-                    new AlwaysStoppedAnimation<Color>(Color(0xffE9A945)),
+                        new AlwaysStoppedAnimation<Color>(Color(0xffE9A945)),
                   ),
                 );
                 break;
@@ -40,28 +45,38 @@ class _DetailTrainerState extends State<DetailTrainer> {
               case ConnectionState.done:
                 if (snapshot.hasError) {
                   print("Erro ao carregar lista" + snapshot.error.toString());
-                  return Center(child: Text("Error"),);
+                  return Center(
+                    child: Text("Error"),
+                  );
                 } else {
-                  return ListView.builder(
-                    scrollDirection: Axis.vertical,
-                    shrinkWrap: true,
-                    itemCount: snapshot.data.length,
-                    itemBuilder: (context, index) {
-                      List<Trainer> lista = snapshot.data;
-                      Trainer trainer = lista[index];
-
-                      return Card(
-                        margin: EdgeInsets.all(5.0),
-                        child: ListTile(
-                          trailing: Icon(Icons.arrow_forward_ios),
-                          title: Text(trainer.name ),
-                          subtitle: Text("CREF: ${trainer.cref}"),
-                          onTap: (){
-
-                          },
-                        ),
-                      );
-                    },
+                  Trainer trainer = snapshot.data;
+                  print(trainer);
+                  return Column(
+                    children: [
+                      Text(trainer.name),
+                      Text(trainer.cref),
+                      Text(trainer.email),
+                      Text(trainer.id.toString()),
+                      ListView.builder(
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        physics: ScrollPhysics(),
+                        scrollDirection: Axis.vertical,
+                        itemCount: trainer.modalities.length,
+                        itemBuilder: (context, index) {
+                          List<Modalities> list = trainer.modalities;
+                          Modalities modalidade = list[index];
+                          print(modalidade.toString());
+                          return Card(
+                            child: ListTile(
+                              title: Text(modalidade.duration.toString()),
+                              subtitle: Text(modalidade.description),
+                              isThreeLine: true,
+                            ),
+                          );
+                        },
+                      )
+                    ],
                   );
                 }
                 break;

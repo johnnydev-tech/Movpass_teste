@@ -58,7 +58,7 @@ class _ListTrainersState extends State<ListTrainers> {
                           title: Text(trainer.name ),
                           subtitle: Text("CREF: ${trainer.cref}"),
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DetailTrainer()));
+                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DetailTrainer(id: trainer.id,)));
                           },
                         ),
                       );

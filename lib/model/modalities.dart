@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 class Modalities {
   String description;
-  String duration;
+  int duration;
   int id;
   String label;
 
@@ -16,9 +16,10 @@ class Modalities {
   factory Modalities.fromJson(Map<String, dynamic> json) {
     return Modalities(
       description: json["description"] as String,
-      duration: json["duration"] as String,
-      id: json["id:"] as int,
+      duration: json["duration"] as int,
+      id: json["id"] as int,
       label: json["label"] as String,
     );
   }
+
 }
