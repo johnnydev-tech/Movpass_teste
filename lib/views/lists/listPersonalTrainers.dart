@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movpass_test/controller/trainerController.dart';
 import 'package:movpass_test/model/trainer.dart';
+import 'package:movpass_test/views/details/detailsPersonalTrainer.dart';
 
 class ListTrainers extends StatefulWidget {
   @override
@@ -42,28 +43,26 @@ class _ListTrainersState extends State<ListTrainers> {
                   print("Erro ao carregar lista" + snapshot.error.toString());
                   return Center(child: Text("Error"),);
                 } else {
-                  return Container(
-                    padding: EdgeInsets.all(5),
-                    child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      shrinkWrap: true,
-                      itemCount: snapshot.data.length,
-                      itemBuilder: (context, index) {
-                        List<Trainer> lista = snapshot.data;
-                        Trainer trainer = lista[index];
+                  return ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    shrinkWrap: true,
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (context, index) {
+                      List<Trainer> lista = snapshot.data;
+                      Trainer trainer = lista[index];
 
-                        return Padding(
-                            padding: EdgeInsets.symmetric(vertical: 5),
-                            child: ListTile(
-                              trailing: Icon(Icons.arrow_forward_ios),
-                              title: Text(trainer.name ),
-                              subtitle: Text(trainer.cref),
-                              onTap: (){
-
-                              },
-                            ));
-                      },
-                    ),
+                      return Card(
+                        margin: EdgeInsets.all(5.0),
+                        child: ListTile(
+                          trailing: Icon(Icons.arrow_forward_ios),
+                          title: Text(trainer.name ),
+                          subtitle: Text("CREF: ${trainer.cref}"),
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DetailTrainer()));
+                          },
+                        ),
+                      );
+                    },
                   );
                 }
                 break;
