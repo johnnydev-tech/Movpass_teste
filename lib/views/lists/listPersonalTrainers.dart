@@ -41,7 +41,9 @@ class _ListTrainersState extends State<ListTrainers> {
               case ConnectionState.done:
                 if (snapshot.hasError) {
                   print("Erro ao carregar lista" + snapshot.error.toString());
-                  return Center(child: Text("Error"),);
+                  return Center(
+                    child: Text("Error"),
+                  );
                 } else {
                   return ListView.builder(
                     scrollDirection: Axis.vertical,
@@ -54,11 +56,32 @@ class _ListTrainersState extends State<ListTrainers> {
                       return Card(
                         margin: EdgeInsets.all(5.0),
                         child: ListTile(
-                          trailing: Icon(Icons.arrow_forward_ios),
-                          title: Text(trainer.name ),
-                          subtitle: Text("CREF: ${trainer.cref}"),
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DetailTrainer(id: trainer.id,)));
+                          leading: Icon(
+                            Icons.account_circle_rounded,
+                            color: Color(0xff242A2C),
+                            size: 50,
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Color(0xff242A2C),
+                          ),
+                          title: Text(trainer.name),
+                          subtitle: Text(
+                            "CREF: ${trainer.cref}",
+                            style: TextStyle(
+                              color: Color(0xffE9A945),
+                              fontWeight: FontWeight.w300,
+                              fontSize: 14,
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (BuildContext context) =>
+                                        DetailTrainer(
+                                          id: trainer.id,
+                                        )));
                           },
                         ),
                       );

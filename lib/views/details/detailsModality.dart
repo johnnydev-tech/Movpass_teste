@@ -145,8 +145,12 @@ class _DetailModalityState extends State<DetailModality> {
                                 texto: "ESCOLHER DATA E HORA",
                                 bgColor: Color(0xff242A2C),
                                 onPressed: () {
-                                  final snackbar = new SnackBar(content: Text("Funcionalidade em Produção!"),);
-                                  _scaffoldKey.currentState.showSnackBar(snackbar);
+                                  final snackbar = new SnackBar(
+                                    content:
+                                        Text("Funcionalidade em Produção!"),
+                                  );
+                                  _scaffoldKey.currentState
+                                      .showSnackBar(snackbar);
                                 },
                               ),
                               SizedBox(
@@ -181,7 +185,7 @@ class _DetailModalityState extends State<DetailModality> {
                               ),
                               Text(
                                 "Os agendamentos serão abertos 10 dias antes da sessão iniciar.\n"
-                                    "Os agendamentos serão encerrados 8 horas antes da sessão iniciar.",
+                                "Os agendamentos serão encerrados 8 horas antes da sessão iniciar.",
                                 style: TextStyle(
                                     color: Color(0xff242A2C),
                                     fontWeight: FontWeight.w300,
