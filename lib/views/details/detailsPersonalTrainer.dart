@@ -15,7 +15,7 @@ class DetailTrainer extends StatefulWidget {
 class _DetailTrainerState extends State<DetailTrainer> {
   TrainerAPI api = TrainerAPI();
 
-  _listTrainer() {
+  _getTrainer() {
     return api.get(widget.id.toString());
   }
 
@@ -28,7 +28,7 @@ class _DetailTrainerState extends State<DetailTrainer> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         child: FutureBuilder(
-          future: _listTrainer(),
+          future: _getTrainer(),
           // ignore: missing_return
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {

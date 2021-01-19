@@ -52,11 +52,13 @@ class _ListModalitiesState extends State<ListModalities> {
                       Modalities modality = lista[index];
 
                       return Card(
+                        color: Colors.white,
                         margin: EdgeInsets.all(5.0),
                         child: ListTile(
-                          trailing: Icon(Icons.arrow_forward_ios),
-                          title: Text(modality.label ),
-                          subtitle: Text(modality.description),
+                          isThreeLine: true,
+                          trailing: Icon(Icons.more_vert,),
+                          title: Text(modality.label,),
+                          subtitle: Text(modality.description,),
                           onTap: (){
                             Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DetailModality(id: modality.id,)));
                           },
