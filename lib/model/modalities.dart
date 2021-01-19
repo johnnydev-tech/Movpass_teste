@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Modalities {
   String description;
@@ -22,4 +22,12 @@ class Modalities {
     );
   }
 
+  Map toJson() {
+    return {
+      "description": this.description,
+      "duration": this.duration,
+      "id": this.id,
+      "label": this.label,
+    };
+  }
 }
