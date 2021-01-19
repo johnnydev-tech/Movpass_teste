@@ -52,6 +52,10 @@ flutter:
   assets:
     - assets/logo.png
     - assets/logo1.webp
+    - assets/treinoFunc.webp
+    - assets/alongamento.webp
+    - assets/hiit.webp
+    - assets/avaliacao.png
 
   
 

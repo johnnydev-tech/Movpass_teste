@@ -19,14 +19,14 @@ class ButtonCustom extends StatelessWidget {
       child: Text(
         this.texto,
         style: TextStyle(
-          fontSize: 16,
+          fontSize: 14,
           color: this.textColor,
         ),
       ),
       color: this.bgColor,
       splashColor: Colors.white24,
       onPressed: this.onPressed,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
     );
   }
 }
